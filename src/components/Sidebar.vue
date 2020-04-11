@@ -17,7 +17,6 @@ export default {
 <style scoped>
 .sidebar {
   flex: 1;
-  text-align: left;
   padding-left: 20px;
   background-color: #efefef;
 }
@@ -27,6 +26,7 @@ export default {
 }
 
 .sidebar .nav-item .nav-link {
+  text-align: left;
   color: #333333;
 }
 
