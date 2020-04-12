@@ -5,21 +5,17 @@
           <div class="sidebar"><sidebar /></div>
           <div class="content"><router-view /></div>
         </div>
-        <h3>Doank</h3>
-        <table-action-modal />
-        <h3>Test</h3>
     </div>
 </template>
 
 <script>
-import { TopNav, Sidebar, TableActionModal } from '@/components';
+import { TopNav, Sidebar } from '@/components'
 
 export default {
   name: "default-layout",
   components: {
     TopNav,
-    Sidebar,
-    TableActionModal
+    Sidebar
   }
 };
 </script>

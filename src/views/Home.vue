@@ -2,28 +2,60 @@
   <div class="home-wrapper">
     <div class="table-buttons">
       <div class="btn-table" v-for="t in tables" v-bind:key="t.id">
-        <button class="btn btn-secondary" v-on:click="tableOnClick(t.tablenum)">{{ t.tablenum }}</button>
+        <button v-bind:class="{'btn': true, 'btn-success': (t.status === 'F'), 'btn-danger': (t.status === 'O')}" v-on:click="tableOnClick(t.tablenum)">{{ t.tablenum }}</button>
       </div>
     </div>    
+    <table-action-modal :show="modalShow" v-on:checkin="checkIn" v-on:checkout="checkOut" v-on:close="modalClosed" v-bind:table-data="tableData" />
   </div>
 </template>
 
 <script>
 import { TableServices } from '@/services'
+import { TableActionModal } from '@/components'
 
 export default {
   name: 'Home',
+  components: {
+    TableActionModal
+  },
   data: () => {
     return {
-      tables: []
+      tables: [],
+      modalShow: false,
+      tableData: {}
     }
   },
   methods: {
-    tableOnClick: (tableNum) => {
+    tableOnClick: function(tableNum) {
       TableServices.getDetail(tableNum)
-        .then((resp) => {
-          console.log(resp)
+        .then(resp => {
+          if (resp.data.success === true) {
+            this.modalShow = true
+
+            this.tableData = resp.data.table
+          }
         })
+    },
+    checkIn: function(dt) {
+      TableServices.checkIn(dt)
+        .then(resp => {
+          if (resp.data.success === true) {
+            this.tables[dt.tablenum - 1] = resp.data.table
+            this.modalShow = false
+          }
+        })
+    },
+    checkOut: function(dt) {
+      TableServices.checkOut(dt)
+        .then(resp => {
+          if (resp.data.success === true) {
+            this.tables[dt.tablenum - 1] = resp.data.table
+            this.modalShow = false
+          }
+        })
+    },
+    modalClosed: function() {
+      this.modalShow = false
     }
   },
   mounted() {

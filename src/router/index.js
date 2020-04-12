@@ -15,15 +15,17 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
-  routes: routes.map(route => ({
-    path: route.path,
-    name: route.name,
-    component: route.component,
-    beforeEnter(to, from, next) {
-      store.dispatch("LayoutModule/updateLayout", route.layout)
-      next()
+  routes: routes.map(function(route) {
+    return {
+      path: route.path,
+      name: route.name,
+      component: route.component,
+      beforeEnter(to, from, next) {
+        store.dispatch("LayoutModule/updateLayout", route.layout)
+        next()
+      }
     }
-  }))
+  })
 })
 
 export default router
