@@ -4,12 +4,18 @@ import {
 	Add as AddMenuCategory,
 	Edit as EditMenuCategory
 } from './MenuCategory'
-import Menus from './Menus'
+import {
+	List as ListMenu,
+	Add as AddMenu,
+	Edit as EditMenu
+} from './Menu'
 
 export {
 	Home,
 	ListMenuCategory,
 	AddMenuCategory,
 	EditMenuCategory,
-	Menus
+	ListMenu,
+	AddMenu,
+	EditMenu
 }

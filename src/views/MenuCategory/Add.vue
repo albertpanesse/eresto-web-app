@@ -1,14 +1,21 @@
 <template>
 	<div class="add-menu-category-wrapper">
-		<h4>Add Menu Category</h4>
-		<hr noshade />
-		<form>
-			<div class="form-group">
-				<label for="exampleInputEmail1">Menu Category Name</label>
-				<input type="email" class="form-control" id="name" aria-describedby="emailHelp" v-model="name">
+		<div class="card">
+			<div class="card-header">
+				<h4>Add Menu Category</h4>
 			</div>
-			<button type="button" class="btn btn-primary" v-on:click="submit">Submit</button>
-		</form>
+			<div class="card-body">
+				<form>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Menu Category Name</label>
+						<input type="text" class="form-control" id="name" v-model="name">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<button type="button" class="btn btn-primary" v-on:click="submit">Submit</button>
+			</div>
+		</div>		
 	</div>
 </template>
 

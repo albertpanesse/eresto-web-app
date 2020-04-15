@@ -8,7 +8,7 @@
 				<router-link to="/menu-category/list" class="nav-link"><i class="fa fa-th-large"></i> Menu Categories</router-link>
 			</li>
 			<li class="nav-item">
-				<router-link to="/menus" class="nav-link"><i class="fa fa-th-list"></i> Menus</router-link>
+				<router-link to="/menu/list" class="nav-link"><i class="fa fa-th-list"></i> Menus</router-link>
 			</li>
 		</ul>
 	</div>
