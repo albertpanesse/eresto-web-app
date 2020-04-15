@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import "@/assets/main.scss"
+
 import { mapState } from "vuex"
 import DefaultLayout from "@/layouts/DefaultLayout"
 
@@ -26,9 +28,9 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
+
 #nav {
   padding: 30px;
   a {

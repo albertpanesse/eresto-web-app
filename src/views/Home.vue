@@ -69,19 +69,23 @@ export default {
 }
 </script>
 
-<style scoped>
-.home-wrapper .table-buttons {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 10px;
-}
-.home-wrapper .table-buttons .btn-table {
-  width: 10%;
-  padding: 0 10px 10px 10px;
-  margin-bottom: 10px;
-}
-.home-wrapper .table-buttons .btn-table button {
-  width: 100%;
+<style lang="scss" scoped>
+.home-wrapper {
+  .table-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+
+    .btn-table {
+      width: 10%;
+      padding: 0 10px 10px 10px;
+      margin-bottom: 10px;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
 }
 </style>

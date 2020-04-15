@@ -1,0 +1,43 @@
+<template>
+	<div class="add-menu-category-wrapper">
+		<h4>Add Menu Category</h4>
+		<hr noshade />
+		<form>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Menu Category Name</label>
+				<input type="email" class="form-control" id="name" aria-describedby="emailHelp" v-model="name">
+			</div>
+			<button type="button" class="btn btn-primary" v-on:click="submit">Submit</button>
+		</form>
+	</div>
+</template>
+
+<script>
+import { MenuCategoryServices } from '@/services'
+
+export default {
+	name: 'add-menu-category',
+	data: function() {
+		return {
+			name: ''
+		}
+	},
+	methods: {
+		submit() {
+			const menuCategory = {
+				name: this.name
+			}
+
+			MenuCategoryServices.create(menuCategory)
+				.then(resp => {
+					if (resp.data.success === true) {
+						this.$router.push('/menu-category/list')
+					}
+				})
+		}
+	}
+}
+</script>
+
+<style lang="scss" scoped>
+</style>
